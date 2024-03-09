@@ -1,0 +1,34 @@
+.edit {
+  background: blue;
+  color: aliceblue;
+  padding: 2px;
+  cursor: pointer;
+  }
+  .edit:hover {
+  background: rgb(28, 28, 32);
+  color: aliceblue;
+  padding: 6px;
+  cursor: pointer;
+  }
+  .delete {
+  background: red;
+  color: aliceblue;
+  padding: 2px;
+  cursor: pointer;
+  }
+  .delete:hover {
+  background: rgb(214, 30, 86);
+  color: aliceblue;
+  padding: 6px;
+  cursor: pointer;
+  }
+  th {
+      background: rgb(10, 10, 221);
+      color: aliceblue;
+      font-size: 25px;
+  }
+  td {
+      border: 1px solid black;
+      text-align: center;
+  }
+  
