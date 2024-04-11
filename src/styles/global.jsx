@@ -8,7 +8,7 @@ const Global = createGlobalStyle`
 }
 
 body {
-    width: 100vw;
+    width: 90%;
     height: 100vh;
     display: flex;
     justify-content: center;
