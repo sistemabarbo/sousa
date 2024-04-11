@@ -44,8 +44,13 @@ height: 42px;
             const user = ref.current;
 
             user.nome.value = onEdit.nome;
+         user.departamento.value = onEdit.departamento;
+         user.cpf.value = onEdit.cpf;
+         user.email.value = onEdit.email;
             user.telefone.value = onEdit.telefone;
-            user.email.value = onEdit.email;
+            user.cidade.value = onEdit.cidade;
+         user.estado.value = onEdit.estado;
+         user.unidade.value = onEdit.unidade;
         }
     }, [onEdit]);
    
@@ -56,8 +61,13 @@ height: 42px;
 
             if (
             !user.nome.value ||
+             !user.departamento.value ||
+             !user.cpf.value ||
+             !user.email.value ||
             !user.telefone.value ||
-            !user.email.value 
+            !user.cidade.value ||
+             !user.estado.value ||
+             !user.unidade.value
             ) {   
             return toast.warn("Preencha todos os campos!");      
             }
@@ -65,22 +75,37 @@ height: 42px;
           if (onEdit) {
             await axios.put("https://api-nodejs-lyart.vercel.app/" + onEdit.id, {
                 nome: user.nome.value,
+             departamento: user.nome.value,
+             cpf: user.cpf.value,
+             email: user.email.value,
                 telefone: user.telefone.value,
-                email: user.email.value,
+                cidade: user.cidade.value,
+             estado: user.estado.value,
+             unidade: user.unidade.value,
                 
             }).then(({ data }) => toast.success(data)).catch(({ data }) => toast.error(data));
           } else {
 
            await axios.post("https://api-nodejs-lyart.vercel.app/", {
                 nome: user.nome.value,
+             departamento: user.nome.value,
+             cpf: user.cpf.value,
+             email: user.email.value,
                 telefone: user.telefone.value,
-                email: user.email.value,
+                cidade: user.cidade.value,
+             estado: user.estado.value,
+             unidade: user.unidade.value,
                
             }).then(({ data }) => toast.success(data)).catch(({ data }) => toast.error(data));
         } 
           user.nome.value = "";
+     user.departamento.value = "";
+     user.cpf.value = "";
+     user.email.value = "";
           user.telefone.value = "";
-          user.email.value = "";
+          user.cidade.value = "";
+     user.estado.value = "";
+     user.unidade.value = "";
          
 
           setOnEdit(null);
@@ -96,12 +121,32 @@ height: 42px;
         <Input name="nome" />
         </InputArea>
         <InputArea>
-        <Label>telefone</Label>
+        <Label>Departamento</Label>
+        <Input name="departamento" />
+        </InputArea>
+        <InputArea>
+        <Label>Cpf</Label>
+        <Input name="cpf" />
+        </InputArea>
+        <InputArea>
+        <Label>Email</Label>
+        <Input name="email" />
+        </InputArea>
+        <InputArea>
+        <Label>Telefone</Label>
         <Input name="telefone" />
         </InputArea>
         <InputArea>
-        <Label>email</Label>
-        <Input name="email" />
+        <Label>cidade</Label>
+        <Input name="cidade" />
+        </InputArea>
+        <InputArea>
+        <Label>Estado</Label>
+        <Input name="estado" />
+        </InputArea>
+        <InputArea>
+        <Label>Unidade</Label>
+        <Input name="unidade" />
         </InputArea>
        
 
